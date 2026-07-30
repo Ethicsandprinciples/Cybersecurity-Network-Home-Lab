@@ -18,8 +18,8 @@ Configure custom firewall rules on a pfSense virtual gateway to inspect, drop, a
 4. **Telemetry Inspection:** Audited pfSense firewall logs (`Status > System Logs > Firewall`) to confirm rule match hits.
 
 ## Key Screenshots Included
-- <img width="1310" height="806" alt="Screenshot 2026-07-30 015834" src="https://github.com/user-attachments/assets/102a643d-a801-40d4-8c59-fdffa15486e2" />
+- <img width="1301" height="806" alt="Screenshot 2026-07-30 015741" src="https://github.com/user-attachments/assets/01bd5ff1-0b61-44c0-ad00-07563fd09ccd" />
  Debian terminal showing successful baseline pings vs. timed-out pings post-rule.
-- <img width="1301" height="806" alt="Screenshot 2026-07-30 015741" src="https://github.com/user-attachments/assets/01bd5ff1-0b61-44c0-ad00-07563fd09ccd" /> pfSense LAN firewall rule configuration table.
+-  <img width="1310" height="806" alt="Screenshot 2026-07-30 015834" src="https://github.com/user-attachments/assets/102a643d-a801-40d4-8c59-fdffa15486e2" /> pfSense LAN firewall rule configuration table.
 - <img width="1293" height="798" alt="Screenshot 2026-07-30 020027" src="https://github.com/user-attachments/assets/b0d906ef-b7c9-4d16-9279-31d2aad2ec1e" />
  System log event showing blocked ICMP packets with red drop indicators.
