@@ -1,0 +1,25 @@
+# Lab 2: Syslog Aggregation & Auth Telemetry Monitoring
+
+## Objective
+Configure local authentication log monitoring (`auth.log`) on a Linux endpoint to capture failed SSH access attempts, and establish remote syslog forwarding on pfSense using UDP port 514 to capture network gateway logs.
+
+## Infrastructure & Topology
+* **Log Collector / Endpoint:** Debian 12 (LAN)
+* **Security Gateway:** pfSense 2.7.x
+* **Protocol & Port:** Syslog over UDP/514
+
+## Execution Steps
+1. **Authentication Monitoring:** Monitored system auth logs via `sudo tail -f /var/log/auth.log` while generating test SSH login failures (`ssh fakeuser@127.0.0.1`).
+2. **Telemetry Analysis:** Inspected event logs to verify source IP (`127.0.0.1`), ephemeral source port, targeted account (`fakeuser`), and failure reason (`Failed password`).
+3. **Remote Syslog Forwarding:** Configured pfSense Remote Logging under `Status > System Logs > Settings` targeting the Debian VM's IP address on UDP port 514 for firewall events.
+4. **Packet Verification:** Installed `tcpdump` and executed `sudo tcpdump -i any udp port 514` on Debian to verify inbound syslog datagrams sent by the gateway in real time.
+
+## Screenshots
+![Auth Failure Telemetry](images/lab2_auth_log.png)
+*Figure 1: Debian terminal capturing real-time failed SSH login attempt in auth.log.*
+
+![pfSense Remote Logging Config](images/lab2_pfsense_config.png)
+*Figure 2: pfSense WebGUI Remote Logging settings pointing to the Debian IP on UDP port 514.*
+
+
+*Figure 3: Live tcpdump packet capture showing incoming UDP 514 syslog traffic from the pfSense gateway.*
